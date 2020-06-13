@@ -1,0 +1,84 @@
+<h1 class="text-center">Sign Up Form</h1><br><br>
+<div class="container">
+    <form name='signupForm' novalidate>
+        <div class="row">
+            <div class="col-12 col-sm-2">
+                <label for="fistname">First name:</label>
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" class="form-control" name="firstname" placeholder="First Name" ng-model="signupCtrl.user.firstname" required>
+            </div>
+            <div class="col-12 col-sm-4">
+                <span ng-if="signupForm.firstname.$error.required && signupForm.firstname.$touched">
+                    Please enter your first name.
+                </span>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-12 col-sm-2">
+                <label for="fistname">Last name:</label>
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" class="form-control" name="lastname" placeholder="Last Name" ng-model="signupCtrl.user.lastname" required>
+            </div>
+            <div class="col-12 col-sm-4">
+                <span ng-if="signupForm.lastname.$error.required && signupForm.lastname.$touched">
+                    Please enter your last name.
+                </span>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-12 col-sm-2">
+                <label for="fistname">Email Id:</label>
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="email" class="form-control" name="email" placeholder="Email" ng-model="signupCtrl.user.email" required>
+            </div>
+            <div class="col-12 col-sm-4">
+                <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+                    Invalid email address.
+                </span>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-12 col-sm-2">
+                <label for="fistname">Contact No.:</label>
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" class="form-control" name="phone" placeholder="###-###-####" ng-model="signupCtrl.user.phone" pattern="(\d{3})-(\d{3})-(\d{4})">
+            </div>
+            <div class="col-12 col-sm-5">
+                <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+                    Contact No. must be in this format ###-####-####.
+                </span><br>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-12 col-sm-2">
+                <label for="fistname">Favourite Item:</label>
+            </div>
+            <div class="col-12 col-sm-4">
+                <input type="text" class="form-control" name="menuitem" placeholder="Your favorite menu item" ng-model="signupCtrl.user.menuitem" required>
+            </div>
+            <div class="col-12 col-sm-5">
+                <span ng-if="signupForm.menuitem.$invalid && signupForm.menuitem.$touched">
+                    Please enter your favorite menu item.
+                </span>
+            </div>
+        </div><br>
+        <div class="row">
+            <div class="col-12 col-sm-2"></div>
+            <div class="col-12 col-sm-4">
+                <button ng-disabled="signupForm.$invalid" class="btn btn-success" ng-click="signupCtrl.submit()">Submit</button>
+            </div>
+            <div class="col-12 col-sm-5">
+                <span ng-if="signupCtrl.noSuchItem">
+                    No such menu number exists.
+                </span><br>
+                <span ng-if="signupCtrl.saved">
+                    Your information has been saved.
+                </span>
+            </div>
+        </div><br>
+    </form>
+</div>
